@@ -14,12 +14,10 @@ class BoatsController < ApplicationController
   end
 
   def show
+  	@boats = Boat.all.map{|boat| {id: boat.id,name: boat.name,capacity: boat.capacity}}
+  	render json: @boats.to_json
   end
 
   def assign
-  end
-
-  def headers
-  
   end
 end
