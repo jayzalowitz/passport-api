@@ -19,5 +19,15 @@ class BoatsController < ApplicationController
   end
 
   def assign
+  	assignment = params[:assignment]
+
+  	boat = Boat.find(assignment[:boat_id])
+  	timeslot = Timeslot.find(assignment[:timeslot_id])
+
+  	if TimeslotHasBoat.where(boat: boat, timeslot: timeslot).length < 1 
+  		#added as I only want one association here. Not neat, but does the trick
+  		TimeslotHasBoat.create(boat: boat, timeslot: timeslot)
+  	end
+  	render json: {}
   end
 end
