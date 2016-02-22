@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'boats/create'
+
+  get 'boats/show'
+
+  get 'boats/assign'
+
   scope 'api', :format => :json do
     post 'boats' => 'boats#create'
     get 'boats' => 'boats#show'
