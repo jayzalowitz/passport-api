@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timeslot_id: 1
+  size: 1
+
+two:
+  timeslot_id: 1
+  size: 1
