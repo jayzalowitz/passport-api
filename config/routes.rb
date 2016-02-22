@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  scope 'api', :format => :json do
+    post 'boats' => 'boats#create'
+    get 'boats' => 'boats#show'
+    post 'assignments' => 'boats#assign'
+
+    post 'timeslots' => 'timeslot#create'
+    get 'timeslots' => 'timeslot#show'
+    post 'bookings' => 'timeslot#book'
+    #there should really be a version here. But not in spec.
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
