@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'timeslot/create'
+
+  get 'timeslot/show'
+
+  get 'timeslot/book'
+
   get 'boats/create'
 
   get 'boats/show'
