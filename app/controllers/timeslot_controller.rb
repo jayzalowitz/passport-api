@@ -17,9 +17,13 @@ class TimeslotController < ApplicationController
   def book
   	booking = params[:booking]
   	timeslot = Timeslot.find(booking[:timeslot_id])
-  	#this needs to figure out if there is enough space in the timeslot before booking
-  	#this is a very serious bug that will lead to unhappy users but i need to get everything else working first.
-  	Booking.create(timeslot_id: timeslot.id,size: booking[:size])
+  	if timeslot.boat_available?(booking[:size].to_i)
+	  	boat = timeslot.find_biggest_available_boat[:boat_id]
+	  	#this needs to figure out if there is enough space in the timeslot before booking
+	  	#this is a very serious bug that will lead to unhappy users but i need to get everything else working first.
+	  	Booking.create(timeslot_id: timeslot.id, boat_id: boat,size: booking[:size])
+	end
+	#else statement for failure would normally go here.
   	render json: {}
   end
 end

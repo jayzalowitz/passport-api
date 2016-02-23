@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160222200858) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "timeslot_id"
+    t.integer  "boat_id"
     t.integer  "size"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160222200858) do
 
   create_table "timeslots", force: :cascade do |t|
     t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
